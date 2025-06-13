@@ -80,3 +80,18 @@ def calculate_small_straight_points(dice):
         if all_present:
             return 15
     return 0
+
+def calculate_large_straight_points(dice):
+    sequences = [
+        [1, 2, 3, 4, 5],
+        [2, 3, 4, 5, 6]
+    ]
+    for seq in sequences:
+        all_present = True
+        for num in seq:
+            if num not in dice:
+                all_present = False
+                break
+        if all_present:
+            return 30
+    return 0
