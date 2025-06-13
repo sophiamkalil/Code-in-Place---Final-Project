@@ -171,3 +171,20 @@ def make_move(dice_list, category, score_card):
             pass
 
     return score_card
+
+def print_score_card(score_card):
+    print("Score Card:")
+    print("-" * 25)
+    for i in range(1, 7):
+        filler = " " * (15 - len(str(i)))
+        if score_card['simple_rule'][i] != -1:
+            print(f"| {i}: {filler}| {score_card['simple_rule'][i]:02} |")
+        else:
+            print(f"| {i}: {filler}|    |")
+    for key in score_card['advanced_rule'].keys():
+        filler = " " * (15 - len(str(key)))
+        if score_card['advanced_rule'][key] != -1:
+            print(f"| {key}: {filler}| {score_card['advanced_rule'][key]:02} |")
+        else:
+            print(f"| {key}: {filler}|    |")
+    print("-" * 25)
