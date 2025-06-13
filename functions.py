@@ -38,3 +38,21 @@ def remove_die(rolled_dice, stored_dice, index):  # index: index of the stored d
     result.append(updated_stored_dice)
 
     return result
+
+def calculate_simple_rule_points(dice_faces):
+    points = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0
+    }
+
+    for face in dice_faces:
+        if face in points:
+            points[face] += face
+        else:
+            points[face] = face
+
+    return points
