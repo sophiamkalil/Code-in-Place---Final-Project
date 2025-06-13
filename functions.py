@@ -155,3 +155,19 @@ def calculate_advanced_rule_points(dice):
         'large_straight': calculate_large_straight_points(dice),
         'small_straight': calculate_small_straight_points(dice)
     }
+
+def make_move(dice_list, category, score_card):
+    advanced = calculate_advanced_rule_points(dice_list)
+    simple = calculate_simple_rule_points(dice_list)
+
+    if category in advanced:
+        score_card['advanced_rule'][category] = advanced[category]
+    else:
+        try:
+            category_num = int(category)
+            if category_num in simple:
+                score_card['simple_rule'][category_num] = simple[category_num]
+        except ValueError:
+            pass
+
+    return score_card
