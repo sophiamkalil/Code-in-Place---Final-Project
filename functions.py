@@ -145,3 +145,13 @@ def calculate_yahtzee_points(dice):
         if dice.count(num) >= 5:
             return 50
     return 0
+
+def calculate_advanced_rule_points(dice):
+    return {
+        'yahtzee': calculate_yahtzee_points(dice),
+        'full_house': calculate_full_house_points(dice),
+        'four_of_a_kind': calculate_four_of_a_kind_points(dice),
+        'no_combination': calculate_sum_points(dice),
+        'large_straight': calculate_large_straight_points(dice),
+        'small_straight': calculate_small_straight_points(dice)
+    }
