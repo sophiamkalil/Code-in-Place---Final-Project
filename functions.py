@@ -56,3 +56,11 @@ def calculate_simple_rule_points(dice_faces):
             points[face] = face
 
     return points
+
+def calculate_sum_points(dice):
+    total = 0
+    i = 0
+    while i < len(dice):
+        total += dice[i]
+        i += 1
+    return total
