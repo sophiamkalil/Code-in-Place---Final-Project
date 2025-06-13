@@ -95,3 +95,29 @@ def calculate_large_straight_points(dice):
         if all_present:
             return 30
     return 0
+
+def calculate_full_house_points(dice_faces):
+    total = sum(dice_faces)
+
+    first_value = dice_faces[0]
+    count_first = dice_faces.count(first_value)
+
+    if count_first == 3:
+        second_value = None
+        for face in dice_faces:
+            if face != first_value:
+                second_value = face
+                break
+        if second_value is not None and dice_faces.count(second_value) == 2:
+            return total
+
+    elif count_first == 2:
+        second_value = None
+        for face in dice_faces:
+            if face != first_value:
+                second_value = face
+                break
+        if second_value is not None and dice_faces.count(second_value) == 3:
+            return total
+
+    return 0
