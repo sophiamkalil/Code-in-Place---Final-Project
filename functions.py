@@ -137,3 +137,11 @@ def calculate_four_of_a_kind_points(dice_faces):
             return total
 
     return 0
+
+def calculate_yahtzee_points(dice):
+    if len(dice) < 5:
+        return 0
+    for num in dice:
+        if dice.count(num) >= 5:
+            return 50
+    return 0
