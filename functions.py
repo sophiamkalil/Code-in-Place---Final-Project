@@ -121,3 +121,19 @@ def calculate_full_house_points(dice_faces):
             return total
 
     return 0
+
+def calculate_four_of_a_kind_points(dice_faces):
+    total = sum(dice_faces)
+
+    frequencies = {}
+    for face in dice_faces:
+        if face not in frequencies:
+            frequencies[face] = 1
+        else:
+            frequencies[face] += 1
+
+    for count in frequencies.values():
+        if count >= 4:
+            return total
+
+    return 0
