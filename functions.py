@@ -23,3 +23,18 @@ def store_die(rolled_dice, stored_dice, index):  # index: index of the rolled di
     result.append(stored_dice)
 
     return result
+
+def remove_die(rolled_dice, stored_dice, index):  # index: index of the stored dice list to be removed and moved to rolled dice
+    result = []
+    updated_stored_dice = []
+    removed_die = stored_dice[index]
+    rolled_dice.append(removed_die)
+
+    for i in range(len(stored_dice)):
+        if i != index:
+            updated_stored_dice.append(stored_dice[i])
+
+    result.append(rolled_dice)
+    result.append(updated_stored_dice)
+
+    return result
